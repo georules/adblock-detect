@@ -37,6 +37,7 @@ this.insert = function() {
   this.adScript.setAttribute("src",this.scriptFile)
   body.appendChild(ad).appendChild(this.adScript)
   this.adScript.onload = adblocked.callback;
+  this.adScript.onerror = adblocked.callback;
   return this
 };
 
