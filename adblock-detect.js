@@ -1,6 +1,7 @@
 (function(window, undefined) {
 var adblocked = function() {
   function adblocked() {
+    this.script = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js"
     this.result = "unknown"
   }  
 
@@ -10,7 +11,7 @@ var adblocked = function() {
     ad.style.display = "none";
     var adScript = document.createElement("script")
     adScript.setAttribute("type","text/javascript")
-    adScript.setAttribute("src","http://pagead2.googlesyndication.com/pagead/show_ads.js")
+    adScript.setAttribute("src",script)
 
     body.appendChild(ad).appendChild(adScript)
 
