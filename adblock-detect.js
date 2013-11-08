@@ -12,7 +12,7 @@ var adblocked = function() {
     var adScript = document.createElement("script")
     adScript.setAttribute("type","text/javascript")
     var script = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js";
-    adScript.setAttribute("src",script)
+    adScript.setAttribute("src",scriptFile)
 
     body.appendChild(ad).appendChild(adScript)
 
