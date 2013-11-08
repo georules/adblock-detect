@@ -1,8 +1,8 @@
 (function(window, undefined) {
 var adblocked = function() {
   function adblocked() {
-    this.script = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js"
-    this.result = "unknown"
+    this.script = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js";
+    this.result = "unknown";
   }  
 
   this.insert = function() {
