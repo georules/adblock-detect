@@ -11,8 +11,7 @@ var adblocked = function() {
     ad.style.display = "none";
     var adScript = document.createElement("script")
     adScript.setAttribute("type","text/javascript")
-    var script = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js";
-    adScript.setAttribute("src",scriptFile)
+    adScript.setAttribute("src",this.scriptFile)
 
     body.appendChild(ad).appendChild(adScript)
 
@@ -20,12 +19,12 @@ var adblocked = function() {
   };
 
   this.check = function() {
-    result = true
+    this.result = true
     return this
   };
 
   window.adblocked = function() {
-    return result
+    return this.result
   }
 }
 
