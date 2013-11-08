@@ -17,7 +17,7 @@ this.insert = function() {
 };
 
 this.check = function() {
-  if (typeof(window.google_ad_block) !== null)  {
+  if (typeof(window.google_ad_block) !== undefined)  {
     this.result = false
   }
   else {
