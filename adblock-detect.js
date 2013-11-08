@@ -2,6 +2,7 @@
 var adblocked = function() {
   function adblocked() {
     this.result = "unknown";
+    this.scriptFile = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.js";
   }  
 
   this.insert = function() {
