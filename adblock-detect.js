@@ -33,11 +33,15 @@ this.insert = function() {
   var body = document.getElementsByTagName('body')[0]
   var ad = document.createElement("div")
   ad.style.display = "none";
-  this.adScript.setAttribute("type","text/javascript")
-  this.adScript.setAttribute("src",this.scriptFile)
-  body.appendChild(ad).appendChild(this.adScript)
-  this.adScript.onload = adblocked.callback;
-  this.adScript.onerror = adblocked.callback;
+//  this.adScript.setAttribute("type","text/javascript")
+//  this.adScript.setAttribute("src",this.scriptFile)
+//  body.appendChild(ad).appendChild(this.adScript)
+//  this.adScript.onload = adblocked.callback;
+//  this.adScript.onerror = adblocked.callback;
+  ad.style.height = "100px";
+  ad.setAttribute("id", "ad-top")
+  body.appendChild(ad)
+
   return this
 };
 
