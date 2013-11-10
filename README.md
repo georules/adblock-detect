@@ -1,7 +1,7 @@
 adblock-detect
 ==============
 
-This is a small script to help detect if someone is running adblock.  test.html shows an example use.
+This is a small script to help detect if someone is running adblock.  test.html shows an example use: <http://georules.github.io/adblock-detect/test.html>
 
 If used, it should be compiled with another important script, as someone could simply adblock the detector script.
 
