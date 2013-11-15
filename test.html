@@ -8,8 +8,10 @@
 
 <script src="adblock-detect.js" type="text/javascript"></script>
 <script>
-adblocked.check(function() {
-  document.getElementById("yo").innerHTML = adblocked.result;
+var adblocked = window.adblocked;
+adblocked.check(function(error, result) {
+  var output = "adblock is " + (result ? "running" : "not running");
+  document.getElementById("yo").textContent = output;
 });
 </script>
 </body>
