@@ -2,7 +2,7 @@
 
 var Adblocked = function() {
 
-this.scriptFile = "http://pagead2.googlesyndication.com/pagead/show_ads.js";
+this.scriptFile = "//pagead2.googlesyndication.com/pagead/show_ads.js";
 this.adScript = document.createElement("script")
 
 this.done = function() {
@@ -12,7 +12,8 @@ this.done = function() {
   else {
     window.adblocked.result = false
   }
-  window.adblocked.userCallback()
+  var error = null;
+  window.adblocked.userCallback(error, window.adblocked.result)
 }
 
 this.insert = function() {
@@ -45,6 +46,3 @@ window.adblocked = {
 }
 
 })(window)
-
-
-
