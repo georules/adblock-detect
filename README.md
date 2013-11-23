@@ -32,5 +32,5 @@ TODO
 
 Contributing
 ---------
-Please send pull requests to https://github.com/georules/adblock-detect
-I am open to suggestions!
++ Please send pull requests to https://github.com/georules/adblock-detect
++ I am open to suggestions on any aspect of the project!
