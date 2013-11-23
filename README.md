@@ -28,4 +28,9 @@ If used, it should be compiled with another important script, as someone could s
 TODO
 ------
 + make use of a blocked script or filename that does not require checking against another server, or which might be used by the website to avoid double-loading.
-+ remove 'unknown' output and instead provide an error
++ remove 'unknown' output and instead provide an error (or maybe unknown resolving to true is ok?)
+
+Contributing
+---------
+Please send pull requests to https://github.com/georules/adblock-detect
+I am open to suggestions!
