@@ -2,11 +2,21 @@
 
 var Adblocked = function() {
 
+that = this
+
 this.scriptFile = "//pagead2.googlesyndication.com/pagead/show_ads.js";
 this.adScript = document.createElement("script")
 
+this.isAdblocked = function() {
+  if (typeof(window.google_ad_block) === "undefined") {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 this.done = function() {
-  if (typeof(window.google_ad_block) === "undefined")  {
+  if (that.isAdblocked())  {
     window.adblocked.result = true
   }
   else {
@@ -36,7 +46,13 @@ return this;
 var checkAds = function(userCallback) {
   window.adblocked.userCallback = userCallback
   var a = new Adblocked()
-  a.insert()
+  // double check, in case google ads are not the ads currently used
+  if (that.isAdblocked()) {
+    a.insert()
+  }
+  else {
+    a.done()    
+  }
 }
 
 window.adblocked = {
