@@ -44,7 +44,9 @@ return this;
 }
 
 var checkAds = function(userCallback) {
-  window.adblocked.userCallback = userCallback
+  if (typeof(userCallback) !== "undefined") { 
+    window.adblocked.userCallback = userCallback
+  }
   var a = new Adblocked()
   // double check, in case google ads are not the ads currently used
   if (that.isAdblocked()) {
