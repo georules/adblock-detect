@@ -1,13 +1,10 @@
 (function(window, undefined) {
 
-var Adblocked = function() {
+function Adblocked() {
+  this.scriptFile = "//pagead2.googlesyndication.com/pagead/show_ads.js";
+}
 
-that = this
-
-this.scriptFile = "//pagead2.googlesyndication.com/pagead/show_ads.js";
-this.adScript = document.createElement("script")
-
-this.isAdblocked = function() {
+Adblocked.prototype.isAdblocked = function() {
   if (typeof(window.google_ad_block) === "undefined") {
     return true;
   }
@@ -15,8 +12,10 @@ this.isAdblocked = function() {
     return false;
   }
 }
-this.done = function() {
-  if (that.isAdblocked())  {
+
+Adblocked.prototype.done = function(ctx) {
+  ctx = (typeof(ctx) === "undefined") ? this : ctx 
+  if (ctx.isAdblocked())  {
     window.adblocked.result = true
   }
   else {
@@ -26,21 +25,18 @@ this.done = function() {
   window.adblocked.userCallback(error, window.adblocked.result)
 }
 
-this.insert = function() {
+Adblocked.prototype.insert = function() {
   var body = document.getElementsByTagName('body')[0]
   var ad = document.createElement("div")
   ad.style.display = "none";
-  this.adScript.setAttribute("type","text/javascript")
-  this.adScript.setAttribute("src",this.scriptFile)
-  body.appendChild(ad).appendChild(this.adScript)
-  this.adScript.onload = this.done;
-  this.adScript.onerror = this.done;
-
+  adScript = document.createElement("script")
+  adScript.setAttribute("type","text/javascript")
+  adScript.setAttribute("src",this.scriptFile)
+  body.appendChild(ad).appendChild(adScript)
+  that = this
+  adScript.onload = function() {that.done(that)};
+  adScript.onerror = adScript.onload;
   return this
-};
-
-return this;
-
 }
 
 var checkAds = function(userCallback) {
@@ -48,10 +44,11 @@ var checkAds = function(userCallback) {
     window.adblocked.userCallback = userCallback
   }
   var a = new Adblocked()
-  // double check, in case google ads are not the ads currently used
-  if (that.isAdblocked()) {
-    a.insert()
+  // if it appears that ads are blocked already
+  if (a.isAdblocked()) {
+    a.insert() // attempt to load ads
   }
+  // if ads have already loaded
   else {
     a.done()    
   }
