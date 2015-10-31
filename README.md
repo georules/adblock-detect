@@ -1,6 +1,8 @@
-NOTE 10/31/2015
+NOTE 10/31/2015 (Broken)
 ---------------
+
 This project has not been maintained in 2 years.  The mechanism for adblock detection used in this project is no longer functional.  If you have a suggestion for a better mechanism, please send a pull request!
+
 https://github.com/georules/adblock-detect/issues/2
 
 adblock-detect
